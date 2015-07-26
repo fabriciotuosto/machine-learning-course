@@ -1,4 +1,4 @@
-function [X_norm, mu, sigma] = featureNormalize(X)
+function [A, mu, sigma] = featureNormalize(X)
 	%FEATURENORMALIZE Normalizes the features in X 
 	%   FEATURENORMALIZE(X) returns a normalized version of X where
 	%   the mean value of each feature is 0 and the standard deviation
@@ -21,20 +21,20 @@ function [X_norm, mu, sigma] = featureNormalize(X)
 	%       
 	% ============================================================
 	% You need to set these values correctly
-	X_norm = X;
+	A = X;
 	mu = zeros(1, size(X, 2));
 	sigma = zeros(1, size(X, 2));
-	numberOfColumnsInX_norm = columns(X_norm);
+	cols = size(X,2);
 	% works with input matrix X of any size
-	for i = 1:numberOfColumnsInX_norm, 
-		meanOfCurrentFeatureInX = mean(X(:, i));
-		mu(:, i) = meanOfCurrentFeatureInX;
+	for i = 1:cols, 
+		feature_mean = mean(X(:, i));
+		mu(:, i) = feature_mean;
 
-		X_norm(:, i) = X_norm(:, i) .- mu(:, i);
+		A(:, i) = A(:, i) - mu(:, i);
 
-		standardDeviationOfCurrentFeatureInX = std(X(:, i));
-		sigma(:, i) = standardDeviationOfCurrentFeatureInX;
+		std_feature = std(X(:, i));
+		sigma(:, i) = std_feature;
 
-		X_norm(:, i) = X_norm(:, i) ./ sigma(:, i);
+		A(:, i) = A(:, i) ./ sigma(:, i);
 	end
 end

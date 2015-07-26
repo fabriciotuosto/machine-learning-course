@@ -4,7 +4,5 @@ function [theta] = normalEqn(X, y)
 	%   regression using the normal equations.
 	% Doesnt work with redundant features eg. feet^2 mts^2
 	% or more features than training examples
-
-	theta = zeros(size(X, 2), 1);
-	tetha = pinv(X'*X) * X' * y;
+	theta = pinv(X'*X) * X' * y;
 end

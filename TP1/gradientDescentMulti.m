@@ -15,7 +15,7 @@ function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters
         %
         % ============================================================
         hypothesis = X * theta;
-        errors = hypothesis .- y;
+        errors = hypothesis - y;
         newDecrement = (alpha * (1/m) * errors' * X); 
         theta = theta - newDecrement';
         %computeCost(X, theta)
