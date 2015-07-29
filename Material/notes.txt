@@ -1,0 +1,33 @@
+Logistic Regression
+J(theta) = ( y*log(h(x)) + (1-y)*log(1-h(x)) ) / -m
+Hipotesis 
+	1/(1 + exp(-theta’ * x))
+Cost function
+	cost(h(x), y) = -y log(h(x)) - (1- y) log(1-h(x))
+Gradient descent
+	alpha * SUM ( h(x) - y)*x(j)
+
+
+function [jVal, gradient] = cost_function(theta)
+  jVal = (theta -5) ^  2
+  gradient = zeros(2,1);
+  gradient = 2 * theta -5
+
+
+function [jVal, gradient] = cost_function_logistic(theta)
+  %jVal = (theta -5) ^  2
+  jVal = -y log(h(x)) - (1- y) log(1-h(x))
+  gradient = zeros(2,1);
+  gradient = 2 * theta -5
+
+options = optimset(‘GradObj’, ‘on’, ‘MaxIter’, ‘100’);
+initialTheta = zeros(2,1);
+[opTheta, functionVal, exitFalg] = fminunc(@costFunction, initialTheta, options); %function minimization unconstrained
+
+
+
+
+Multiclass classification
+for each class obtain hypothesis each class y = 1 other values = 0
+
+max ( probability for the hypothesis's ) 
