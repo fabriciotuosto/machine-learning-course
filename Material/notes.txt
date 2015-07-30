@@ -53,9 +53,15 @@ a_2(0) = 1; % bias unit in the hidden layer
 z_3 = theta_2 * a_2;
 h(x) = a_3 = g(z_3);
 
+Neural Network ( Classification )
+L = total number of layers in networks
+s_l = number of unit not counting the bias unit in layer l 
+Binary classification y = 0 or 1
+Multi class classification K classes
+y e R_k eg [1; 0; 0; 0 ], [0; 1; 0; 0 ], [0; 0; 1; 0 ], [0; 0; 0; 1 ] K output units
+cost function = Logistic regression + regularization
 
-
-
+BackPropagation
 
 
 
