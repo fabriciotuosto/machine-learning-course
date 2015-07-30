@@ -1,7 +1,7 @@
 Logistic Regression
 J(theta) = ( y*log(h(x)) + (1-y)*log(1-h(x)) ) / -m
 Hipotesis 
-	1/(1 + exp(-theta’ * x))
+	 1/(1 + exp(-theta’ * x))
 Cost function
 	cost(h(x), y) = -y log(h(x)) - (1- y) log(1-h(x))
 Gradient descent
@@ -31,3 +31,32 @@ Multiclass classification
 for each class obtain hypothesis each class y = 1 other values = 0
 
 max ( probability for the hypothesis's ) 
+
+
+
+Neural networks
+
+activation layer node
+
+thetha_j weights or parameters controlling the mapping for layer j
+
+if networks has s_j units in layer j s_(j+1) in layer j+1 then theta_j
+dims = s_(j+1) x s_j + 1
+
+% vectorize implementation
+% forward propagation
+x = [x0; x1; x2; x3];
+z_2 = [z_1; z_2, z_3];
+z_2 = theta_1 * x;
+a_2 = g(z_2);  % sigmoid function element wise
+a_2(0) = 1; % bias unit in the hidden layer
+z_3 = theta_2 * a_2;
+h(x) = a_3 = g(z_3);
+
+
+
+
+
+
+
+
