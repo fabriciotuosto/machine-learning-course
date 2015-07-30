@@ -13,13 +13,11 @@ function [all_theta] = oneVsAll(X, y, num_labels, lambda)
     %       fmincg works similarly to fminunc, but is more efficient when we
     %       are dealing with large number of parameters.
     %
-    % Some useful variables
-    m = size(X, 1);
+    %--------------------------------------------------------------------------
     n = size(X, 2);
-    % You need to return the following variables correctly 
     all_theta = zeros(num_labels, n + 1);
     % Add ones to the X data matrix
-    X = [ones(m, 1) X];
+    X = add_bias_unit(X)';
     initial_theta = zeros(n + 1, 1);
     options = optimset('GradObj', 'on', 'MaxIter', 50);
     for i=1:num_labels
