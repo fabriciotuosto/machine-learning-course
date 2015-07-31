@@ -64,5 +64,6 @@ cost function = Logistic regression + regularization
 BackPropagation
 
 
-
+sigmoid gradient
+ sigmoid(z) .* ( 1 - sigmoid(z))  => sigmoid derivative
 
