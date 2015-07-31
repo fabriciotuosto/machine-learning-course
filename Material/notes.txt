@@ -1,4 +1,6 @@
+---------------------------------------------------------
 Logistic Regression
+---------------------------------------------------------
 J(theta) = ( y*log(h(x)) + (1-y)*log(1-h(x)) ) / -m
 Hipotesis 
 	 1/(1 + exp(-theta’ * x))
@@ -25,17 +27,17 @@ initialTheta = zeros(2,1);
 [opTheta, functionVal, exitFalg] = fminunc(@costFunction, initialTheta, options); %function minimization unconstrained
 
 
-
-
+---------------------------------------------------------
 Multiclass classification
+---------------------------------------------------------
 for each class obtain hypothesis each class y = 1 other values = 0
 
 max ( probability for the hypothesis's ) 
 
 
-
+---------------------------------------------------------
 Neural networks
-
+---------------------------------------------------------
 activation layer node
 
 thetha_j weights or parameters controlling the mapping for layer j
@@ -66,4 +68,8 @@ BackPropagation
 
 sigmoid gradient
  sigmoid(z) .* ( 1 - sigmoid(z))  => sigmoid derivative
+
+---------------------------------------------------------
+Model Selection 
+---------------------------------------------------------
 
