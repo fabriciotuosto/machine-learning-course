@@ -36,8 +36,8 @@ J = nn_cost(h_x, Y) ...
 delta_3 = h_x - Y;
 delta_2 = layer_delta(Theta2, delta_3, z_2);
 % Gradient
-Theta1_grad = nn_gradient_reg(m, Theta1, nn_gradient(delta_2, a_1, m), lambda);
-Theta2_grad = nn_gradient_reg(m, Theta2, nn_gradient(delta_3, a_2', m), lambda);
+Theta1_grad = nn_gradient_reg(nn_gradient(delta_2, a_1 , m), m, Theta1, lambda);
+Theta2_grad = nn_gradient_reg(nn_gradient(delta_3, a_2', m), m, Theta2, lambda);
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
 end

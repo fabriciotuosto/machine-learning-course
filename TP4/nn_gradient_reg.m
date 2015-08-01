@@ -1,4 +1,4 @@
-function gradient = nn_gradient_reg(m, theta, grad, lambda)
+function gradient = nn_gradient_reg(grad, m, theta, lambda)
     % Regularization gradient for logistic regression
     grad_err = (lambda/m) * theta(:,2:end);
     gradient = grad;
