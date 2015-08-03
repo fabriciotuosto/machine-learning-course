@@ -8,14 +8,7 @@ function idx = findClosestCentroids(X, centroids)
     K = size(centroids, 1);
     idx = zeros(size(X,1), 1);
     for i = 1:length(idx)
-        distance = zeros(K, 1);
-        x = X(i,:);
-        for j = 1:K
-            c = centroids(j,:);
-            diff = x - c;
-            distance(j) = diff * diff';
-        end
-        [~, idx(i)] = min(distance);
+        idx(i) = get_min_distance(centroids, X(i,:));
     end
 end
 
