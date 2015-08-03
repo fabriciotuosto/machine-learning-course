@@ -16,7 +16,7 @@ function centroids = computeCentroids(X, idx, K)
     centroids = zeros(K, n);
     for k=1:K
         data = X(idx == k, :);
-        centroids(k,:) = mean(data);
+        centroids(k, :) = mean(data);
     end
 end
 

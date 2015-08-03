@@ -1,0 +1,134 @@
+---------------------------------------------------------
+Logistic Regression
+---------------------------------------------------------
+J(theta) = ( y*log(h(x)) + (1-y)*log(1-h(x)) ) / -m
+Hipotesis 
+	 1/(1 + exp(-theta’ * x))
+Cost function
+	cost(h(x), y) = -y log(h(x)) - (1- y) log(1-h(x))
+Gradient descent
+	alpha * SUM ( h(x) - y)*x(j)
+
+
+function [jVal, gradient] = cost_function(theta)
+  jVal = (theta -5) ^  2
+  gradient = zeros(2,1);
+  gradient = 2 * theta -5
+
+
+function [jVal, gradient] = cost_function_logistic(theta)
+  %jVal = (theta -5) ^  2
+  jVal = -y log(h(x)) - (1- y) log(1-h(x))
+  gradient = zeros(2,1);
+  gradient = 2 * theta -5
+
+options = optimset(‘GradObj’, ‘on’, ‘MaxIter’, ‘100’);
+initialTheta = zeros(2,1);
+[opTheta, functionVal, exitFalg] = fminunc(@costFunction, initialTheta, options); %function minimization unconstrained
+
+
+---------------------------------------------------------
+Multiclass classification
+---------------------------------------------------------
+for each class obtain hypothesis each class y = 1 other values = 0
+
+max ( probability for the hypothesis's ) 
+
+
+---------------------------------------------------------
+Neural networks
+---------------------------------------------------------
+activation layer node
+
+thetha_j weights or parameters controlling the mapping for layer j
+
+if networks has s_j units in layer j s_(j+1) in layer j+1 then theta_j
+dims = s_(j+1) x s_j + 1
+
+% vectorize implementation
+% forward propagation
+x = [x0; x1; x2; x3];
+z_2 = [z_1; z_2, z_3];
+z_2 = theta_1 * x;
+a_2 = g(z_2);  % sigmoid function element wise
+a_2(0) = 1; % bias unit in the hidden layer
+z_3 = theta_2 * a_2;
+h(x) = a_3 = g(z_3);
+
+Neural Network ( Classification )
+L = total number of layers in networks
+s_l = number of unit not counting the bias unit in layer l 
+Binary classification y = 0 or 1
+Multi class classification K classes
+y e R_k eg [1; 0; 0; 0 ], [0; 1; 0; 0 ], [0; 0; 1; 0 ], [0; 0; 0; 1 ] K output units
+cost function = Logistic regression + regularization
+
+BackPropagation
+
+
+sigmoid gradient
+ sigmoid(z) .* ( 1 - sigmoid(z))  => sigmoid derivative
+
+---------------------------------------------------------
+Model Selection 
+---------------------------------------------------------
+
+
+
+
+---------------------------------------------------------
+Support Vector Machine
+---------------------------------------------------------
+z = Theta' * X;
+logistic regression h_x = sigmoid(z);
+logistic cost function -y log(h_x) + (1 -y)log(1 - h_x);
+
+y=1;
+cost_1 = -log(h_x);
+
+y=0;
+cost_0 = -log(1 - h_x);
+
+
+SVM 
+cost= 1/m * sum( (y * cost_1(z)) + ((1-y)* cost_0(z)) ) ...
++ regularization_term;
+
+remove 1/m term for SVM
+
+J = cost + lambda * B; % logistic regression
+C = 1/lambda;
+J = C * cost + B; % SVM move lambda from regression to cost
+
+
+SVM = 'large margin classifier';
+y=1; z >=  1; 
+y=0; z <= -1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
