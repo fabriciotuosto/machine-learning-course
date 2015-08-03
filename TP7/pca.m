@@ -3,7 +3,6 @@ function [U, S] = pca(X)
     %   [U, S, X] = pca(X) computes eigenvectors of the covariance matrix of X
     %   Returns the eigenvectors U, the eigenvalues (on diagonal) in S
     %
-    [m, ~] = size(X);
-    Sigma = (X' * X)/m;
+    Sigma = (X' * X)/(size(X, 1));
     [U, S, ~] = svd(Sigma);
 end
